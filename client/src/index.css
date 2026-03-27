@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gray-50 text-foreground font-sans antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm;
+  }
+
+  .stat-card {
+    @apply bg-white rounded-xl border border-gray-100 p-6 shadow-sm
+      transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .pipeline-column {
+    @apply bg-gray-50/80 rounded-xl p-4 min-h-[400px] border border-gray-100;
+  }
+
+  .pipeline-card {
+    @apply bg-white rounded-lg p-4 border border-gray-100 shadow-sm
+      transition-all duration-200 hover:shadow-md cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .animate-stagger-1 { animation-delay: 0.05s; }
+  .animate-stagger-2 { animation-delay: 0.1s; }
+  .animate-stagger-3 { animation-delay: 0.15s; }
+  .animate-stagger-4 { animation-delay: 0.2s; }
+}
+
+/* Dark Mode Global Overrides */
+.dark body {
+  @apply bg-[#0b1120] text-slate-200;
+}
+.dark .bg-white, .dark .bg-card {
+  @apply bg-[#1e293b] border-[#334155] text-slate-200 !important;
+}
+.dark .text-gray-900 {
+  @apply text-slate-100 !important;
+}
+.dark .bg-gray-50 {
+  @apply bg-[#0b1120] !important;
+}
+.dark .border-gray-100, .dark .border-gray-50, .dark .border-gray-200 {
+  @apply border-[#334155] !important;
+}
+.dark .text-gray-500, .dark .text-gray-600 {
+  @apply text-slate-400 !important;
+}
+.dark .hover\:bg-gray-50:hover, .dark .hover\:bg-gray-100:hover {
+  @apply hover:bg-[#334155] !important;
+}
+.dark .bg-gray-100, .dark .bg-gray-200 {
+  @apply bg-[#334155] !important;
+}
+.dark .bg-white\/80 {
+  @apply bg-[#1e293b]/80 !important;
+}
+.dark .text-gray-400 {
+  @apply text-slate-500 !important;
+}
+.dark input, .dark textarea, .dark select {
+  @apply bg-[#0f172a] border-[#334155] text-slate-200 !important;
+}
+.dark .divide-gray-50 > :not([hidden]) ~ :not([hidden]) {
+  @apply border-[#334155] !important;
+}
+.dark th {
+  @apply text-slate-300 border-[#334155] !important;
+}
+.dark .pipeline-column {
+  @apply bg-[#0f172a]/50 border-[#1e293b] !important;
+}
+.dark .pipeline-card {
+  @apply bg-[#1e293b] border-[#334155] !important;
+}
